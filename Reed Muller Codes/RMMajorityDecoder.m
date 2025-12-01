@@ -7,7 +7,6 @@ function recovered_codewords = RMMajorityDecoder(r, m, codeword)
     recovered_codewords = gf(zeros(N, n), 1);
     for l=1:1:N
         recovered_codeword = gf(codeword(l, :), 1);
-        progressbar(l, N);
         %Take all the codewords with same degree
         for deg=r:-1:0
             mon_indices = sum(permutation_matrix, 2) == deg;
