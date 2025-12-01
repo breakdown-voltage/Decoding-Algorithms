@@ -29,3 +29,15 @@ function recovered_codewords = RMMLDecoder(r, m, codewords)
     end
     recovered_codewords = recovered_codewords.x;
 end
+
+function [G, A] = RMgenerator(r, m)
+    n = 2^m;
+    G=zeros(n, n);
+    for i=1:1:n
+        ui = zeros(1,n);
+        ui(i)=1;
+        G(i,:)=RMmmencode(ui, m);
+    end
+    mondegs = m-sum(de2bi(0:n-1, m), 2);
+    A = find(mondegs <= r);
+end

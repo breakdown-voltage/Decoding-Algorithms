@@ -3,7 +3,6 @@ function decoded_all= PolarSCDecoder(m, A,p,codewords)
     decoded_all= zeros(Nwords, N);           % result matrix
 
     for i = 1:Nwords
-        progressbar(i, Nwords)
         decoded_all(i, :) = PolarSCDec(m, A,p, codewords(i, :));
     end
 end
